@@ -6,12 +6,32 @@
   --flame: #D57800;
 }
 
+/*
+  Typography system — single source of truth.
+  Display font (Rojenstone) is paid; substituted with Fraunces from Google Fonts.
+  When the real Rojenstone file lands in /public/fonts/, swap the @font-face below
+  and --font-display will pick it up everywhere.
+*/
+
+/*
+@font-face {
+  font-family: "Rojenstone";
+  src: url("/fonts/Rojenstone.woff2") format("woff2");
+  font-weight: 500 700;
+  font-style: normal;
+  font-display: swap;
+}
+*/
+
 @theme inline {
   --color-bg: var(--bg);
   --color-ink: var(--ink);
   --color-flame: var(--flame);
-  --font-sans: var(--font-geist-sans);
-  --font-display: var(--font-display);
+
+  /* Family aliases — components reference these, not the next/font vars */
+  --font-display: var(--font-fraunces); /* Rojenstone (substituted) */
+  --font-body: var(--font-eczar);
+  --font-link: var(--font-work-sans);
   --font-mono: var(--font-geist-mono);
 }
 
@@ -19,13 +39,86 @@ html,
 body {
   background: var(--bg);
   color: var(--ink);
-  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  font-family: var(--font-body), Georgia, "Times New Roman", serif;
   overflow-x: hidden;
 }
 
 ::selection {
   background: var(--flame);
   color: var(--bg);
+}
+
+/*
+  Type scale — usage: <h1 className="type-h1">…</h1>, <p className="type-body">…</p>
+  All sizes/weights/spacing live here. Don't inline font-size or font-family in
+  components — extend this scale instead.
+*/
+
+.type-h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 4rem;          /* 64px */
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.type-h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 2.5rem;        /* 40px */
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+
+.type-h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.5rem;        /* 24px */
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.type-subtitle {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.5rem;        /* 24px */
+  line-height: 1.3;
+}
+
+.type-body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 1rem;          /* 16px */
+  line-height: 1.4;         /* 140% */
+}
+
+.type-bold {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.type-small {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.875rem;      /* 14px */
+  line-height: 1.4;
+}
+
+.type-pre-title {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.625rem;      /* 10px */
+  letter-spacing: 0.03em;   /* 3% */
+  text-transform: uppercase;
+}
+
+.type-link {
+  font-family: var(--font-link);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 /* Hide system cursor only on devices that actually have a hovering pointer */
