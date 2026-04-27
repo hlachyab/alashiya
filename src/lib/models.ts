@@ -18,11 +18,11 @@ export const HERO_MODELS: Model3D[] = [
     src: "/models/aphrodite.glb",
     caption: "Aphrodite · marble sculpture",
   },
-  {
-    id: "amphoroid-crater",
-    src: "/models/amphoroid-crater.glb",
-    caption: "Amphoroid Crater · Crypto-Geometric, 11th century BC",
-  },
+  // {
+  //   id: "amphoroid-crater",
+  //   src: "/models/amphoroid-crater.glb",
+  //   caption: "Amphoroid Crater · Crypto-Geometric, 11th century BC",
+  // },
   {
     id: "sculpture",
     src: "/models/sculpture.glb",
