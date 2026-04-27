@@ -15,38 +15,15 @@ export function Hero() {
       <div className="flex flex-col justify-center gap-5 px-8 py-16 lg:px-12">
         <p className="type-pre-title text-flame">Paphos</p>
         <div className="leading-none">
-          <span
-            className="block italic text-ink/80"
-            style={{
-              fontFamily: "var(--font-display)",
-              fontWeight: 500,
-              fontSize: "1.75rem",
-            }}
-          >
+          <span className="block font-display text-[1.75rem] font-medium italic text-ink/80">
             Archaeological
           </span>
-          <span
-            className="block text-ink"
-            style={{
-              fontFamily: "var(--font-display)",
-              fontWeight: 700,
-              fontSize: "1.75rem",
-            }}
-          >
+          <span className="block font-display text-[1.75rem] font-bold text-ink">
             Museum
           </span>
         </div>
         <div className="h-px w-12 bg-flame" />
-        <h1
-          className="text-ink"
-          style={{
-            fontFamily: "var(--font-display)",
-            fontWeight: 300,
-            fontSize: "clamp(3rem, 6.5vw, 6rem)",
-            letterSpacing: "-0.02em",
-            lineHeight: 0.95,
-          }}
-        >
+        <h1 className="font-display text-[clamp(3rem,6.5vw,6rem)] font-light leading-[0.95] tracking-[-0.02em] text-ink">
           Explore
           <br />
           Life in

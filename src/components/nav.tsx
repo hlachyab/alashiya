@@ -30,10 +30,7 @@ export function Nav() {
         />
         <div className="border-l border-flame pl-4 leading-tight">
           <p className="type-pre-title text-ink/70">Archaeological Museum</p>
-          <p
-            className="text-base text-ink"
-            style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}
-          >
+          <p className="font-display text-base font-medium text-ink">
             Pafos District
           </p>
         </div>

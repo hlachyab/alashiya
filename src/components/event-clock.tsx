@@ -81,7 +81,7 @@ export function EventClock() {
                   textAnchor="middle"
                   fontSize="9"
                   fill="var(--bg)"
-                  style={{ fontFamily: "var(--font-display)", fontWeight: 500 }}
+                  className="font-display font-medium"
                 >
                   {event.month}
                 </text>
@@ -90,9 +90,8 @@ export function EventClock() {
                   y={y + 9}
                   textAnchor="middle"
                   fontSize="13"
-                  fontWeight="700"
                   fill="var(--bg)"
-                  style={{ fontFamily: "var(--font-display)" }}
+                  className="font-display font-bold"
                 >
                   {event.day}
                 </text>
@@ -119,10 +118,9 @@ export function EventClock() {
                 key={event.id}
                 type="button"
                 onClick={() => setActive(event)}
-                className={`flex h-16 w-16 flex-col items-center justify-center rounded-full bg-ink text-bg transition-transform hover:scale-105 ${
+                className={`flex h-16 w-16 flex-col items-center justify-center rounded-full bg-ink font-display text-bg transition-transform hover:scale-105 ${
                   isActive ? "ring-2 ring-flame ring-offset-2 ring-offset-bg" : ""
                 }`}
-                style={{ fontFamily: "var(--font-display)" }}
               >
                 <span className="text-[9px] uppercase leading-none">
                   {event.month}
