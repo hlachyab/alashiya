@@ -1,11 +1,41 @@
 import type { Metadata } from "next";
-import { Eczar, Fraunces, Geist_Mono, Work_Sans } from "next/font/google";
+import {
+  DM_Sans,
+  Eczar,
+  Fraunces,
+  Geist_Mono,
+  Playfair_Display,
+  Roboto_Slab,
+  Work_Sans,
+} from "next/font/google";
 import { Providers } from "./providers";
 import "./globals.css";
 
+// Display font — per Figma. Real font, not a substitute.
+const robotoSlab = Roboto_Slab({
+  variable: "--font-roboto-slab",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
+
+// Hero title display serif (Rojenstone stand-in).
 const fraunces = Fraunces({
   variable: "--font-fraunces",
   subsets: ["latin"],
+});
+
+// Cera Pro (paid) substitute + the Figma's DM Sans eyebrow font.
+const dmSans = DM_Sans({
+  variable: "--font-dm-sans",
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+});
+
+const playfair = Playfair_Display({
+  variable: "--font-playfair",
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  style: ["normal", "italic"],
 });
 
 const eczar = Eczar({
@@ -26,9 +56,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Team Web is cooking · Cyprus",
+  title: "Archaeological Museum · Pafos District",
   description:
-    "An interactive walk through the cultural heritage of Cyprus. Currently in the kitchen.",
+    "Explore 10,000 years of Cypriot history at the Archaeological Museum of the Pafos District.",
 };
 
 export default function RootLayout({
@@ -40,7 +70,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${fraunces.variable} ${eczar.variable} ${workSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${robotoSlab.variable} ${fraunces.variable} ${eczar.variable} ${workSans.variable} ${dmSans.variable} ${playfair.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <Providers>{children}</Providers>

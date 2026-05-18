@@ -1,33 +1,46 @@
 @import "tailwindcss";
 
+/* Light is the default palette. .dark overrides for the toggle. */
 :root {
-  --bg: #0a0a0a;
-  --ink: #fafaf5;
-  --flame: #D57800;
-  --surface: #1f1f1f;
+  --bg: #ece3cf;        /* warm cream — base page */
+  --ink: #1c1c1c;       /* near-black text */
+  --flame: #d57800;     /* accent — fixed both modes */
+  --surface: #ffffff;   /* white cards on cream */
+  --sand: #e3d6b8;      /* hero + deeper warm sections */
+  --footer: #1b1b1b;    /* dark footer — fixed both modes */
+  --footer-ink: #efe7d5;/* footer text — fixed both modes */
+  --olive: #99a05a;     /* top utility bar bg — fixed both modes */
+  --olive-ink: #eeeeee; /* top utility bar text — fixed both modes */
+  --nav: #faf7ef;       /* header bar background */
+  --gold: #d7b877;      /* header rule, dividers, active underline */
+  --gold-strong: #cfaa5b; /* Get Tickets button border */
+  --hero-green: #8d9b5a;  /* hero "Archaeological" word */
+  --hero-gold: #bd9a48;   /* hero "Museum" word + accent rule */
+  --hero-ghost: #faf6f1;  /* hero centre placeholder text */
+
+  /* Explore section — card text stays dark on the light tints in both modes */
+  --card-ink: #1c1c1c;
+  --explore-rule: #d9c9a3;        /* divider under the subtitle */
+  --explore-tour: #6f8f4e;        /* card 1 accent (green) */
+  --explore-tour-bg: #ededea;     /* card 1 background tint */
+  --explore-timeline: #d8800f;    /* card 2 accent (orange) */
+  --explore-timeline-bg: #f4e8d1; /* card 2 background tint */
+  --explore-stories: #2e5e8b;     /* card 3 accent (blue) */
+  --explore-stories-bg: #e3e9f1;  /* card 3 background tint */
 }
 
-.light {
-  --bg: #f5f0e6;
-  --ink: #0a0a0a;
-  --surface: #ffffff;
+.dark {
+  --bg: #0a0a0a;
+  --ink: #fafaf5;
+  --surface: #1f1f1f;
+  --sand: #121212;
+  --nav: #0f0f0f;
 }
 
 /*
   Typography system — single source of truth.
-  Display font (Rojenstone) is paid; substituted with Fraunces from Google Fonts.
-  When the real Rojenstone file lands in /public/fonts/, swap the @font-face below
-  and --font-display will pick it up everywhere.
-*/
-
-/*
-@font-face {
-  font-family: "Rojenstone";
-  src: url("/fonts/Rojenstone.woff2") format("woff2");
-  font-weight: 500 700;
-  font-style: normal;
-  font-display: swap;
-}
+  Font families are aliased in @theme below. Components reference the aliases
+  (font-display, font-body, font-ui, font-accent), never the next/font vars.
 */
 
 @theme inline {
@@ -35,11 +48,33 @@
   --color-ink: var(--ink);
   --color-flame: var(--flame);
   --color-surface: var(--surface);
+  --color-sand: var(--sand);
+  --color-footer: var(--footer);
+  --color-footer-ink: var(--footer-ink);
+  --color-olive: var(--olive);
+  --color-olive-ink: var(--olive-ink);
+  --color-nav: var(--nav);
+  --color-gold: var(--gold);
+  --color-gold-strong: var(--gold-strong);
+  --color-hero-green: var(--hero-green);
+  --color-hero-gold: var(--hero-gold);
+  --color-hero-ghost: var(--hero-ghost);
+  --color-card-ink: var(--card-ink);
+  --color-explore-rule: var(--explore-rule);
+  --color-explore-tour: var(--explore-tour);
+  --color-explore-tour-bg: var(--explore-tour-bg);
+  --color-explore-timeline: var(--explore-timeline);
+  --color-explore-timeline-bg: var(--explore-timeline-bg);
+  --color-explore-stories: var(--explore-stories);
+  --color-explore-stories-bg: var(--explore-stories-bg);
 
   /* Family aliases — components reference these, not the next/font vars */
-  --font-display: var(--font-fraunces); /* Rojenstone (substituted) */
+  --font-display: var(--font-roboto-slab); /* Roboto Slab, per Figma */
+  --font-hero: var(--font-fraunces); /* hero title only */
   --font-body: var(--font-eczar);
   --font-link: var(--font-work-sans);
+  --font-ui: var(--font-dm-sans); /* Cera Pro (substituted) + DM Sans */
+  --font-accent: var(--font-playfair);
   --font-mono: var(--font-geist-mono);
 }
 
@@ -129,6 +164,52 @@ body {
   text-underline-offset: 2px;
 }
 
+/* Header nav links — Cera Pro (substituted) 14px */
+.type-nav {
+  font-family: var(--font-ui);
+  font-weight: 400;
+  font-size: 0.875rem;      /* 14px */
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+/* Hero sub-brand lines — Playfair Display 22px */
+.type-hero-italic {
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.375rem;      /* 22px */
+  line-height: 1;
+  letter-spacing: 0.045em;  /* ≈1px @ 22px */
+}
+
+.type-hero-strong {
+  font-family: var(--font-accent);
+  font-weight: 700;
+  font-size: 1.375rem;      /* 22px */
+  line-height: 1;
+  letter-spacing: 0.045em;
+}
+
+/* Scroll cue — Roboto Slab, wide-tracked small caps */
+.type-scroll {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 0.6875rem;     /* 11px */
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+/* Small caps eyebrow — DM Sans 9px, heavily tracked */
+.type-eyebrow {
+  font-family: var(--font-ui);
+  font-weight: 600;
+  font-size: 0.5625rem;     /* 9px */
+  letter-spacing: 0.25em;   /* 2.5px @ 9px ≈ 0.28em; eased to 0.25em */
+  line-height: 1;
+  text-transform: uppercase;
+}
+
 /* Hide system cursor only on devices that actually have a hovering pointer */
 @media (hover: hover) and (pointer: fine) {
   html,
@@ -196,4 +277,16 @@ body {
   .marquee-track {
     animation: none !important;
   }
+}
+
+/* Greek-key (meander) band — decorative footer border */
+.meander {
+  height: 28px;
+  background-color: var(--flame);
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='28' viewBox='0 0 56 28'%3E%3Cpath fill='none' stroke='%23000' stroke-width='3' d='M4 24V8h16v12h-8v-6h12V4H0'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='28' viewBox='0 0 56 28'%3E%3Cpath fill='none' stroke='%23000' stroke-width='3' d='M4 24V8h16v12h-8v-6h12V4H0'/%3E%3C/svg%3E");
+  -webkit-mask-repeat: repeat-x;
+  mask-repeat: repeat-x;
+  -webkit-mask-size: 56px 28px;
+  mask-size: 56px 28px;
 }

@@ -40,11 +40,16 @@ export const VISIT_INFO: VisitColumn[] = [
   },
 ];
 
-export type AboutStat = { id: string; value: string; label: string };
+export type AboutStat = {
+  id: string;
+  value: string;
+  label: string;
+  image?: boolean; // renders a photo placeholder backdrop until assets land
+};
 
 export const ABOUT_STATS: AboutStat[] = [
-  { id: "year", value: "1964", label: "Year Opened" },
-  { id: "info-1", value: "more info", label: "more info" },
-  { id: "info-2", value: "more info", label: "more info" },
+  { id: "opened", value: "1964", label: "Year Opened" },
+  { id: "renovated", value: "1978", label: "Year Renovated", image: true },
+  { id: "updated", value: "2020", label: "Last Update", image: true },
   { id: "eu", value: "EU Co-Funded", label: "2014–2020 Redesign" },
 ];

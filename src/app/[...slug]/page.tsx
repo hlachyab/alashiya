@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { CustomCursor } from "@/components/custom-cursor";
 import { Nav } from "@/components/nav";
+import { SiteFooter } from "@/components/site-footer";
+import { UtilityBar } from "@/components/utility-bar";
 
 function titleFromSlug(slug: string[]) {
   if (!slug?.length) return "This page";
@@ -21,8 +23,9 @@ export default async function ComingSoon({
   return (
     <div className="flex min-h-screen flex-col bg-bg">
       <CustomCursor />
+      <UtilityBar />
       <Nav />
-      <main className="flex flex-1 flex-col items-center justify-center px-6 text-center">
+      <main className="flex flex-1 flex-col items-center justify-center px-6 py-32 text-center">
         <p
           className="hero-fade-in type-pre-title text-flame"
           style={{ animationDelay: "100ms" }}
@@ -49,6 +52,7 @@ export default async function ComingSoon({
           ← Back to Home
         </Link>
       </main>
+      <SiteFooter />
     </div>
   );
 }

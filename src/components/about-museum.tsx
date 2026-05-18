@@ -34,17 +34,41 @@ export function AboutMuseum() {
         </Reveal>
 
         <Reveal delay={120} className="grid grid-cols-2 gap-4">
-          {ABOUT_STATS.map((stat) => (
-            <div
-              key={stat.id}
-              className="border-t-2 border-flame/70 bg-surface p-6 lg:p-8"
-            >
-              <p className="font-display text-xl font-normal text-ink lg:text-2xl">
-                {stat.value}
-              </p>
-              <p className="mt-1 type-small text-ink/50">{stat.label}</p>
-            </div>
-          ))}
+          {ABOUT_STATS.map((stat) =>
+            stat.image ? (
+              <div
+                key={stat.id}
+                className="relative flex min-h-40 flex-col justify-end overflow-hidden border-t-2 border-flame/70 p-6"
+              >
+                {/* photo placeholder until assets land */}
+                <div
+                  aria-hidden
+                  className="absolute inset-0"
+                  style={{
+                    background:
+                      "linear-gradient(135deg, #4a3f2e 0%, #2e2a22 100%)",
+                  }}
+                />
+                <div aria-hidden className="absolute inset-0 bg-black/25" />
+                <p className="relative font-display text-xl font-normal text-[#efe7d5] lg:text-2xl">
+                  {stat.value}
+                </p>
+                <p className="relative mt-1 type-small text-[#efe7d5]/70">
+                  {stat.label}
+                </p>
+              </div>
+            ) : (
+              <div
+                key={stat.id}
+                className="flex min-h-40 flex-col justify-end border-t-2 border-flame/70 bg-surface p-6"
+              >
+                <p className="font-display text-xl font-normal text-ink lg:text-2xl">
+                  {stat.value}
+                </p>
+                <p className="mt-1 type-small text-ink/50">{stat.label}</p>
+              </div>
+            ),
+          )}
         </Reveal>
       </div>
     </section>

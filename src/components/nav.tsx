@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { IMAGES } from "@/lib/images";
 import { ThemeToggle } from "./theme-toggle";
 
@@ -7,12 +10,21 @@ const NAV_LINKS = [
   { href: "/", label: "Home" },
   { href: "/explore", label: "Explore" },
   { href: "/collection", label: "Collection" },
+  { href: "/about", label: "About" },
   { href: "/visit", label: "Visit Us" },
 ];
 
+function isActive(pathname: string, href: string) {
+  return href === "/"
+    ? pathname === "/"
+    : pathname === href || pathname.startsWith(`${href}/`);
+}
+
 export function Nav() {
+  const pathname = usePathname();
+
   return (
-    <nav className="relative z-30 flex items-center justify-between gap-6 border-b border-flame/40 px-6 py-4 sm:px-10">
+    <nav className="relative z-30 flex h-22 items-center justify-between gap-6 border-b-2 border-gold bg-nav px-6 lg:px-20">
       <div className="flex items-center gap-4">
         <Image
           src={IMAGES.cyprusEmblem.src}
@@ -28,28 +40,44 @@ export function Nav() {
           height={IMAGES.departmentOfAntiquities.height}
           className="h-10 w-auto"
         />
-        <div className="border-l border-flame pl-4 leading-tight">
-          <p className="type-pre-title text-ink/70">Archaeological Museum</p>
-          <p className="font-display text-base font-medium text-ink">
+        <div className="ml-1 border-l border-gold pl-4 leading-tight">
+          <p className="type-eyebrow text-gold">Archaeological Museum</p>
+          <p className="mt-1 font-body text-base font-normal text-ink">
             Pafos District
           </p>
         </div>
       </div>
 
-      <ul className="hidden items-center gap-10 lg:flex">
-        {NAV_LINKS.map((link) => (
-          <li key={link.href}>
-            <Link
-              href={link.href}
-              className="type-pre-title text-ink/80 transition-colors hover:text-flame"
-            >
-              {link.label}
-            </Link>
-          </li>
-        ))}
+      <ul className="hidden items-center gap-9 lg:flex">
+        {NAV_LINKS.map((link) => {
+          const active = isActive(pathname, link.href);
+          return (
+            <li key={link.href}>
+              <Link
+                href={link.href}
+                className={`type-nav border-b-2 pb-1 transition-colors ${
+                  active
+                    ? "border-gold text-ink"
+                    : "border-transparent text-ink/70 hover:text-ink"
+                }`}
+              >
+                {link.label}
+              </Link>
+            </li>
+          );
+        })}
       </ul>
 
-      <ThemeToggle />
+      <div className="flex items-center gap-5">
+        <ThemeToggle />
+        <span className="hidden h-7 w-px bg-gold sm:block" />
+        <Link
+          href="/tickets"
+          className="hidden rounded-md border-2 border-gold-strong px-5 py-2.5 font-ui text-sm text-ink transition-colors hover:bg-gold-strong hover:text-nav sm:inline-block"
+        >
+          Get Tickets
+        </Link>
+      </div>
     </nav>
   );
 }

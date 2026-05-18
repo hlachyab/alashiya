@@ -18,10 +18,18 @@ export function NewsSection() {
             <Reveal key={article.id} delay={i * 120} className="h-full">
               <Link
                 href={article.href}
-                className="group flex h-full flex-col overflow-hidden rounded-md border border-ink/10 transition-all duration-300 hover:-translate-y-1 hover:border-ink/25"
+                className="group flex h-full flex-col overflow-hidden rounded-md bg-surface shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
               >
                 <div className="aspect-16/10 w-full overflow-hidden">
-                  <div className="h-full w-full bg-white transition-transform duration-700 group-hover:scale-105" />
+                  {/* photo placeholder until article images land */}
+                  <div
+                    aria-hidden
+                    className="h-full w-full transition-transform duration-700 group-hover:scale-105"
+                    style={{
+                      background:
+                        "linear-gradient(135deg, #b2997a 0%, #6f5f49 100%)",
+                    }}
+                  />
                 </div>
                 <div className="flex flex-1 flex-col p-6">
                   <p className="type-pre-title text-flame">
