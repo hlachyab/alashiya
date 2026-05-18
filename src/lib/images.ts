@@ -96,6 +96,48 @@ export const IMAGES = {
     width: 408,
     height: 300,
   },
+  aboutGlanceExterior: {
+    src: "/images/at-a-glance-1.svg",
+    alt: "The Archaeological Museum of the Pafos District, exterior",
+    width: 428,
+    height: 368,
+  },
+  aboutGlanceGalleries: {
+    src: "/images/at-a-glance-2.svg",
+    alt: "Gallery interiors of the Pafos District Archaeological Museum",
+    width: 836,
+    height: 368,
+  },
+  aboutJourney1: {
+    src: "/images/journey-1.svg",
+    alt: "A gallery display in the Pafos District Archaeological Museum",
+    width: 368,
+    height: 248,
+  },
+  aboutJourney2: {
+    src: "/images/journey-2.svg",
+    alt: "A gallery display in the Pafos District Archaeological Museum",
+    width: 368,
+    height: 248,
+  },
+  aboutJourney3: {
+    src: "/images/journey-3.svg",
+    alt: "A gallery display in the Pafos District Archaeological Museum",
+    width: 368,
+    height: 248,
+  },
+  aboutJourney4: {
+    src: "/images/journey-4.svg",
+    alt: "A gallery display in the Pafos District Archaeological Museum",
+    width: 368,
+    height: 248,
+  },
+  aboutMap: {
+    src: "/images/Map.svg",
+    alt: "Map of western Cyprus showing the museum's six archaeological sites",
+    width: 800,
+    height: 536,
+  },
 } as const satisfies Record<string, ImageAsset>;
 
 export type ImageKey = keyof typeof IMAGES;

@@ -1,4 +1,6 @@
+import Image from "next/image";
 import { SITE_LOCATIONS, SITE_LOCATIONS_INTRO } from "@/lib/about";
+import { IMAGES } from "@/lib/images";
 import { Reveal } from "../reveal";
 
 export function SiteLocations() {
@@ -34,32 +36,15 @@ export function SiteLocations() {
             </ul>
           </Reveal>
 
-          {/* Stylised Pafos District map — placeholder until cartography lands */}
           <Reveal delay={120}>
-            <div className="relative aspect-4/3 w-full overflow-hidden rounded-sm bg-[#efe6d2]">
-              {/* road network */}
-              <div
-                aria-hidden
-                className="absolute inset-0 opacity-50"
-                style={{
-                  backgroundImage:
-                    "repeating-linear-gradient(28deg, transparent 0 22px, rgba(213,120,0,0.28) 22px 23px), repeating-linear-gradient(-54deg, transparent 0 34px, rgba(213,120,0,0.18) 34px 35px)",
-                }}
+            <div className="relative aspect-800/536 w-full overflow-hidden">
+              <Image
+                src={IMAGES.aboutMap.src}
+                alt={IMAGES.aboutMap.alt}
+                fill
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="object-cover"
               />
-              {/* sea / coastline (south-west) */}
-              <div
-                aria-hidden
-                className="absolute -bottom-16 -left-16 h-2/3 w-2/3 rounded-[50%] bg-[#9fc2c0]"
-              />
-              <div
-                aria-hidden
-                className="absolute bottom-0 left-0 h-1/3 w-full bg-linear-to-t from-[#9fc2c0]/70 to-transparent"
-              />
-              {/* site markers */}
-              <span className="absolute left-[26%] top-[32%] h-2.5 w-2.5 rounded-full bg-flame ring-2 ring-[#efe6d2]" />
-              <span className="absolute left-[44%] top-[58%] h-2.5 w-2.5 rounded-full bg-flame ring-2 ring-[#efe6d2]" />
-              <span className="absolute left-[63%] top-[44%] h-2.5 w-2.5 rounded-full bg-flame ring-2 ring-[#efe6d2]" />
-              <span className="absolute left-[72%] top-[70%] h-2.5 w-2.5 rounded-full bg-flame ring-2 ring-[#efe6d2]" />
             </div>
           </Reveal>
         </div>

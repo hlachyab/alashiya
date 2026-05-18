@@ -25,7 +25,7 @@ export function AboutHistory() {
                 <dt className="font-hero text-4xl font-medium leading-none tracking-[-0.02em] text-ink lg:text-5xl">
                   {stat.value}
                 </dt>
-                <dd className="mt-3 type-small font-medium text-flame/75">
+                <dd className="mt-3 type-small font-medium text-hero-green">
                   {stat.label}
                 </dd>
               </div>

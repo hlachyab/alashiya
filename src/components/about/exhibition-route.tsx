@@ -1,8 +1,10 @@
+import Image from "next/image";
 import {
   EXHIBITION_ROUTE,
   ROUTE_PERIODS,
   type RoutePeriod,
 } from "@/lib/about";
+import { IMAGES } from "@/lib/images";
 import { Reveal } from "../reveal";
 
 // Static class strings (no dynamic concatenation) so Tailwind keeps them.
@@ -13,12 +15,11 @@ const SWATCH: Record<RoutePeriod["swatch"], string> = {
   roman: "bg-period-roman",
 };
 
-// Tonal placeholders evoking the four gallery photos — until photography lands.
-const TILES = [
-  "bg-linear-to-br from-[#c9a44e] via-[#b08a3c] to-[#7c5f25]",
-  "bg-linear-to-br from-[#a5471f] via-[#8f3d22] to-[#5f2814]",
-  "bg-linear-to-br from-[#5b5b56] via-[#46463f] to-[#2c2c27]",
-  "bg-linear-to-br from-[#2a4a73] via-[#234063] to-[#152a47]",
+const JOURNEY_IMAGES = [
+  IMAGES.aboutJourney1,
+  IMAGES.aboutJourney2,
+  IMAGES.aboutJourney3,
+  IMAGES.aboutJourney4,
 ];
 
 // Phrases the Figma sets in bold within the second paragraph.
@@ -51,12 +52,19 @@ export function ExhibitionRoute() {
 
         <div className="mt-12 grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
           <Reveal className="grid grid-cols-2 gap-4">
-            {TILES.map((tile, i) => (
+            {JOURNEY_IMAGES.map((img) => (
               <div
-                key={i}
-                aria-hidden
-                className={`aspect-4/3 w-full overflow-hidden rounded-sm ${tile}`}
-              />
+                key={img.src}
+                className="relative aspect-368/248 w-full overflow-hidden"
+              >
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  sizes="(min-width: 1024px) 25vw, 50vw"
+                  className="object-cover"
+                />
+              </div>
             ))}
           </Reveal>
 
@@ -75,7 +83,7 @@ export function ExhibitionRoute() {
                 <li key={period.id} className="flex items-center gap-4">
                   <span
                     aria-hidden
-                    className={`h-5 w-5 shrink-0 rounded-[2px] ${SWATCH[period.swatch]}`}
+                    className={`h-4 w-8 shrink-0 rounded-xs ${SWATCH[period.swatch]}`}
                   />
                   <span className="type-bold text-ink">{period.label}</span>
                 </li>

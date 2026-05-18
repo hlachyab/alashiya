@@ -1,4 +1,6 @@
+import Image from "next/image";
 import { ABOUT_INTRO } from "@/lib/about";
+import { IMAGES } from "@/lib/images";
 import { Reveal } from "../reveal";
 
 export function AboutHero() {
@@ -24,34 +26,25 @@ export function AboutHero() {
         </div>
 
         <Reveal delay={120}>
-          <div className="mt-12 grid grid-cols-1 gap-5 lg:grid-cols-3 lg:gap-6">
-            {/* Museum exterior — placeholder until photography lands */}
-            <figure className="lg:col-span-1">
-              <div className="h-0.5 w-16 bg-gold" />
-              <div
-                aria-hidden
-                className="mt-4 aspect-4/5 w-full overflow-hidden rounded-sm bg-linear-to-br from-[#cdbf9e] via-[#b8a988] to-[#8d8163] lg:aspect-auto lg:h-[420px]"
+          <div className="mt-12 grid grid-cols-1 gap-6 lg:grid-cols-3">
+            <div className="relative h-64 overflow-hidden border-t-2 border-gold lg:col-span-1 lg:h-96">
+              <Image
+                src={IMAGES.aboutGlanceExterior.src}
+                alt={IMAGES.aboutGlanceExterior.alt}
+                fill
+                sizes="(min-width: 1024px) 33vw, 100vw"
+                className="object-cover"
               />
-            </figure>
-
-            {/* Gallery interiors — triptych placeholder until photography lands */}
-            <figure className="lg:col-span-2">
-              <div className="h-0.5 w-16 bg-gold" />
-              <div className="mt-4 grid h-[260px] grid-cols-3 gap-0 overflow-hidden rounded-sm lg:h-[420px]">
-                <div
-                  aria-hidden
-                  className="bg-linear-to-br from-[#1f3a63] via-[#274a78] to-[#16294a]"
-                />
-                <div
-                  aria-hidden
-                  className="bg-linear-to-br from-[#7a3320] via-[#8f3d22] to-[#5a2415]"
-                />
-                <div
-                  aria-hidden
-                  className="bg-linear-to-br from-[#cdbf9e] via-[#b8a988] to-[#8d8163]"
-                />
-              </div>
-            </figure>
+            </div>
+            <div className="relative h-64 overflow-hidden border-t-2 border-gold lg:col-span-2 lg:h-96">
+              <Image
+                src={IMAGES.aboutGlanceGalleries.src}
+                alt={IMAGES.aboutGlanceGalleries.alt}
+                fill
+                sizes="(min-width: 1024px) 67vw, 100vw"
+                className="object-cover"
+              />
+            </div>
           </div>
         </Reveal>
       </div>

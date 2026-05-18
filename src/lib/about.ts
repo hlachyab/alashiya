@@ -52,4 +52,4 @@ export const SITE_LOCATIONS = [
 ];
 
 export const SITE_LOCATIONS_INTRO =
-  "From the first Epipalaeolithic settlements to the height of Roman Cyprus, the Pafos District Archaeological Museum traces 12,500 years of unbroken human presence across five rooms of extraordinary finds.";
+  "The museum's exhibits originate mainly from Palaipafos (Kouklia), Nea Pafos and Marion–Arsinoe (Polis), supplemented by finds from Pegeia, Kissonerga and Lempa, six sites across western Cyprus that together trace 12,500 years of unbroken human presence.";
