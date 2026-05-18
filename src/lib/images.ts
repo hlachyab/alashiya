@@ -60,6 +60,42 @@ export const IMAGES = {
     width: 408,
     height: 185,
   },
+  artifactEnthronedGoddess: {
+    src: "/images/enthroned-goddess.svg",
+    alt: "Terracotta enthroned goddess with attendant figures",
+    width: 408,
+    height: 300,
+  },
+  artifactAmphoroidKrater: {
+    src: "/images/amphroid-krater.svg",
+    alt: "Mycenaean amphoroid krater with painted decoration",
+    width: 408,
+    height: 300,
+  },
+  artifactGoldDiadem: {
+    src: "/images/gold-daidem.svg",
+    alt: "Hellenistic gold diadem",
+    width: 408,
+    height: 300,
+  },
+  artifactMosaicFloor: {
+    src: "/images/mosaic-floor.svg",
+    alt: "Roman floor mosaic panel",
+    width: 408,
+    height: 300,
+  },
+  artifactMarbleAphrodite: {
+    src: "/images/marble-aphrodite.svg",
+    alt: "Marble Aphrodite sculpture in the gallery",
+    width: 408,
+    height: 300,
+  },
+  artifactLimestoneSarcophagus: {
+    src: "/images/limestone.svg",
+    alt: "Classical limestone sarcophagus",
+    width: 408,
+    height: 300,
+  },
 } as const satisfies Record<string, ImageAsset>;
 
 export type ImageKey = keyof typeof IMAGES;

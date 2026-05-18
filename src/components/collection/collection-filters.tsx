@@ -16,8 +16,8 @@ export function CollectionFilters({
   const options: Selection[] = [ALL_PERIODS, ...COLLECTION_PERIODS];
 
   return (
-    <div className="border-b border-gold/40">
-      <div className="mx-auto flex max-w-7xl flex-wrap gap-3 px-6 py-5 lg:px-20">
+    <div className="border-b-2 border-gold">
+      <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-6 py-5 lg:px-20">
         {options.map((option) => {
           const selected = option === active;
           return (
@@ -28,8 +28,8 @@ export function CollectionFilters({
               onClick={() => onSelect(option)}
               className={`rounded-full px-5 py-2 font-ui text-sm transition-colors ${
                 selected
-                  ? "bg-gold text-card-ink"
-                  : "border border-gold/70 text-ink/70 hover:border-flame hover:text-ink"
+                  ? "bg-gold-strong text-card-ink"
+                  : "border border-gold/40 text-ink/70 hover:border-flame hover:text-ink"
               }`}
             >
               {option}

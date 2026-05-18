@@ -50,6 +50,7 @@ export const COLLECTION_OBJECTS: CollectionObject[] = [
     era: "Archaic, 600–480 BC",
     sortYear: -600,
     href: "/collection/enthroned-goddess",
+    image: "artifactEnthronedGoddess",
   },
   {
     id: "amphoroid-krater",
@@ -59,6 +60,7 @@ export const COLLECTION_OBJECTS: CollectionObject[] = [
     era: "Late Bronze Age, c. 1300 BC",
     sortYear: -1300,
     href: "/collection/amphoroid-krater",
+    image: "artifactAmphoroidKrater",
   },
   {
     id: "gold-diadem",
@@ -68,6 +70,7 @@ export const COLLECTION_OBJECTS: CollectionObject[] = [
     era: "Hellenistic, 300–50 BC",
     sortYear: -300,
     href: "/collection/gold-diadem",
+    image: "artifactGoldDiadem",
   },
   {
     id: "mosaic-floor-panel",
@@ -77,6 +80,7 @@ export const COLLECTION_OBJECTS: CollectionObject[] = [
     era: "Roman, 2nd century AD",
     sortYear: 150,
     href: "/collection/mosaic-floor-panel",
+    image: "artifactMosaicFloor",
   },
   {
     id: "marble-aphrodite",
@@ -86,6 +90,7 @@ export const COLLECTION_OBJECTS: CollectionObject[] = [
     era: "Roman, 1st century BC",
     sortYear: -50,
     href: "/collection/marble-aphrodite",
+    image: "artifactMarbleAphrodite",
   },
   {
     id: "limestone-sarcophagus",
@@ -95,6 +100,7 @@ export const COLLECTION_OBJECTS: CollectionObject[] = [
     era: "Classical, 500–325 BC",
     sortYear: -500,
     href: "/collection/limestone-sarcophagus",
+    image: "artifactLimestoneSarcophagus",
   },
 ];
 
